@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Muster - Administrator Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+  
+
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">Muster Admin</a>
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="donations.html">Fundraisers</a></li>
+                <li class="nav-item"><a class="nav-link" href="campaign.html">My Campaign</a></li>
+                <li class="nav-item"><a class="nav-link" href="admin_dashboard.html">Admin</a></li>
+            </ul>
+
+            <form class="d-flex">
+                <input class="form-control me-2" type="text" placeholder="Search campaigns or users"
+                   aria-label="Search campaigns or users">
+            <button class="btn btn-warning" type="button">Search</button>
+        </form>
+    </div>
+</nav>
+
+<div class="container mt-4">
+
+    <h1>Administrator Dashboard</h1>
+            <div class="row">
+                <div class="col-md-3 col-6">
+                    <div class="stat-box">
+                        <h3>4</h3>
+                        <p>Waiting for approval</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-box">
+                        <h3>4</h3>
+                        <p>Reported items</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-box">
+                        <h3>1,204</h3>
+                        <p>Live campaigns</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-box">
+                        <h3>$4.18m</h3>
+                        <p>Raised this year</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 id="approvals">New campaigns waiting for approval</h2>
+            <p>New campaigns do not appear on the website until an administrator approves them.</p>
+            <div class="table-responsive">
+            <table class="table table-bordered bg-white">
+                <thead class="table-light">
+                <tr>
+                    <th>Campaign</th>
+                    <th>Organiser</th>
+                    <th>Charity and ABN</th>
+                    <th>Goal</th>
+                    <th>Submitted</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Ride for the Riverina</td>
+                    <td>Ellen T.</td>
+                    <td>Rural Aid<br>ABN 89 165 761 594</td>
+                    <td>$12,000</td>
+                    <td>2 days ago</td>
+                    <td>
+                        <button type="button" class="btn btn-success btn-sm">Approve</button>
+                        <button type="button" class="btn btn-danger btn-sm">Reject</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Bakers of Balmain</td>
+                    <td>Nick A.</td>
+                    <td>OzHarvest<br>ABN 44 108 782 928</td>
+                    <td>$3,500</td>
+                    <td>2 days ago</td>
+                    <td>
+                        <button type="button" class="btn btn-success btn-sm">Approve</button>
+                        <button type="button" class="btn btn-danger btn-sm">Reject</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Help Our Mate Get Back On Track</td>
+                    <td>New account (email not verified)</td>
+                    <td>No charity chosen</td>
+                    <td>$50,000</td>
+                    <td>4 hours ago</td>
+                    <td>
+                        <button type="button" class="btn btn-success btn-sm">Approve</button>
+                        <button type="button" class="btn btn-danger btn-sm">Reject</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Shave for a Cure Toowoomba</td>
+                    <td>Priya N.</td>
+                    <td>Leukaemia Foundation<br>ABN 57 727 361 021</td>
+                    <td>$6,000</td>
+                    <td>Yesterday</td>
+                    <td>
+                        <button type="button" class="btn btn-success btn-sm">Approve</button>
+                        <button type="button" class="btn btn-danger btn-sm">Reject</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            </div>
+
+            <h2 id="campaigns" class="mt-4">Manage all campaigns</h2>
+            <p>Administrators can change the status of a campaign, suspend it or delete it.</p>
+            <div class="table-responsive">
+            <table class="table table-bordered table-striped bg-white">
+                <thead class="table-light">
+                <tr>
+                    <th>Campaign</th>
+                    <th>Organiser</th>
+                    <th>Raised / goal</th>
+                    <th>Status</th>
+                    <th>Change status</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Coorparoo Biggest Morning Tea</td>
+                    <td>Jules M.</td>
+                    <td>$1,000 / $8,000</td>
+                    <td><span class="badge bg-success">Active</span></td>
+                    <td>
+                        <select class="form-select form-select-sm">
+                            <option selected>Active</option>
+                            <option>Paused</option>
+                            <option>Suspended</option>
+                            <option>Completed</option>
+                        </select>
+                    </td>
+                    <td><a href="donations.html">View</a> | <a href="#">Delete</a></td>
+                </tr>
+                <tr>
+                    <td>Riverside Twilight Walk</td>
+                    <td>Beyond Blue events team</td>
+                    <td>$1,000 / $25,000</td>
+                    <td><span class="badge bg-success">Active</span></td>
+                    <td>
+                        <select class="form-select form-select-sm">
+                            <option selected>Active</option>
+                            <option>Paused</option>
+                            <option>Suspended</option>
+                            <option>Completed</option>
+                        </select>
+                    </td>
+                    <td><a href="donations.html">View</a> | <a href="#">Delete</a></td>
+                </tr>
+                <tr>
+                    <td>Help Our Mate Get Back On Track</td>
+                    <td>New account</td>
+                    <td>$1,000 / $50,000</td>
+                    <td><span class="badge bg-warning text-dark">Pending</span></td>
+                    <td>
+                        <select class="form-select form-select-sm">
+                            <option selected>Pending</option>
+                            <option>Active</option>
+                            <option>Rejected</option>
+                        </select>
+                    </td>
+                    <td><a href="donations.html">View</a> | <a href="#">Delete</a></td>
+                </tr>
+                <tr>
+                    <td>Sunset Fun Run Geelong</td>
+                    <td>Marco V.</td>
+                    <td>$1,000 / $9,000</td>
+                    <td><span class="badge bg-secondary">Suspended</span></td>
+                    <td>
+                        <select class="form-select form-select-sm">
+                            <option selected>Suspended</option>
+                            <option>Active</option>
+                            <option>Paused</option>
+                        </select>
+                    </td>
+                    <td><a href="donations.html">View</a> | <a href="#">Delete</a></td>
+                </tr>
+                </tbody>
+            </table>
+            </div>
+
+            <h2 id="users" class="mt-4">Manage users</h2>
+            <p>Administrators can approve, edit, suspend or delete user accounts.</p>
+            <div class="table-responsive">
+            <table class="table table-bordered table-striped bg-white">
+                <thead class="table-light">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Joined</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Jules M.</td>
+                    <td>jules@example.com</td>
+                    <td>Organiser</td>
+                    <td>2021</td>
+                    <td><span class="badge bg-success">Active</span></td>
+                    <td><a href="#">Edit</a> | <a href="#">Suspend</a> | <a href="#">Delete</a></td>
+                </tr>
+                <tr>
+                    <td>Priya N.</td>
+                    <td>priya@example.com</td>
+                    <td>Organiser</td>
+                    <td>2024</td>
+                    <td><span class="badge bg-success">Active</span></td>
+                    <td><a href="#">Edit</a> | <a href="#">Suspend</a> | <a href="#">Delete</a></td>
+                </tr>
+                <tr>
+                    <td>Rural Aid events</td>
+                    <td>events@example.org</td>
+                    <td>Charity account</td>
+                    <td>Today</td>
+                    <td><span class="badge bg-secondary">Waiting for approval</span></td>
+                    <td><a href="#">Approve</a> | <a href="#">Reject</a></td>
+                </tr>
+                </tbody>
+            </table>
+            </div>
+
+            <h2 id="reports" class="mt-4">Reported content</h2>
+            <p>Content that users have reported as inappropriate or misleading.</p>
+            <div class="table-responsive">
+            <table class="table table-bordered bg-white">
+                <thead class="table-light">
+                <tr>
+                    <th>Report ID</th>
+                    <th>Reported item</th>
+                    <th>Reason</th>
+                    <th>Number of reports</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>R-2841</td>
+                    <td>Donation message on Coorparoo Biggest Morning Tea</td>
+                    <td>Spam</td>
+                    <td>3</td>
+                    <td>
+                        <button type="button" class="btn btn-danger btn-sm">Remove</button>
+                        <button type="button" class="btn btn-secondary btn-sm">Keep</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>R-2838</td>
+                    <td>Description on Help Our Mate Get Back On Track</td>
+                    <td>Misleading</td>
+                    <td>6</td>
+                    <td>
+                        <button type="button" class="btn btn-danger btn-sm">Remove</button>
+                        <button type="button" class="btn btn-secondary btn-sm">Keep</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>R-2836</td>
+                    <td>Photo on Trivia for the Shelter</td>
+                    <td>Inappropriate image</td>
+                    <td>1</td>
+                    <td>
+                        <button type="button" class="btn btn-danger btn-sm">Remove</button>
+                        <button type="button" class="btn btn-secondary btn-sm">Keep</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>R-2829</td>
+                    <td>Organiser profile for account 44182</td>
+                    <td>Pretending to be someone else</td>
+                    <td>2</td>
+                    <td>
+                        <button type="button" class="btn btn-danger btn-sm">Remove</button>
+                        <button type="button" class="btn btn-secondary btn-sm">Keep</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            </div>
+
+            <h2 id="featured" class="mt-4">Choose featured campaigns</h2>
+            <p>Tick the campaigns that should appear in the Featured section on the home page. Only active campaigns
+                can be featured.</p>
+
+            <div class="card">
+                <div class="card-body">
+                    <form>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="feature1" checked>
+                            <label class="form-check-label" for="feature1">Coorparoo Biggest Morning Tea</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="feature2" checked>
+                            <label class="form-check-label" for="feature2">Riverside Twilight Walk</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="feature3" checked>
+                            <label class="form-check-label" for="feature3">Shave the Shift</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="feature4" checked>
+                            <label class="form-check-label" for="feature4">Great Northern Bake Sale</label>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="featureRule" class="form-label">Automatic rule for empty spots</label>
+                            <select class="form-select" id="featureRule">
+                                <option selected>Finishing in the next 7 days</option>
+                                <option>Newest campaigns</option>
+                                <option>Most money raised this week</option>
+                                <option>Seasonal campaigns</option>
+                                <option>Manual choice only</option>
+                            </select>
+                        </div>
+
+                        <button type="button" class="btn btn-danger">Update featured section</button>
+                    </form>
+                </div>
+            </div>
+
+</div>
+
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h4>Muster</h4>
+                <p style="font-size: 14px;">An Australian fundraising website for community charity events.</p>
+            </div>
+            <div class="col-md-3">
+                <h4>Fundraise</h4>
+                <a href="campaign.html">Start an event</a>
+                <a href="#">Organiser guide</a>
+                <a href="#">Fees and payouts</a>
+            </div>
+            <div class="col-md-3">
+                <h4>Support</h4>
+                <a href="#">Help centre</a>
+                <a href="#">Contact us</a>
+            </div>
+            <div class="col-md-3">
+                <h4>Legal</h4>
+                <a href="#">Terms of use</a>
+                <a href="#">Privacy policy</a>
+                <a href="admin_dashboard.html">Admin login</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+
+</body>
+</html>

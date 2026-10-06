@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Muster - Campaign Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+
+
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">Muster</a>
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="donations.html">Fundraisers</a></li>
+                <li class="nav-item"><a class="nav-link" href="campaign.html">My Campaign</a></li>
+                <li class="nav-item"><a class="nav-link" href="admin_dashboard.html">Admin</a></li>
+            </ul>
+
+            <form class="d-flex">
+                <input class="form-control me-2" type="text" placeholder="Search my donors">
+                <button class="btn btn-warning" type="button">Search</button>
+            </form>
+        </div>
+</nav>
+
+<div class="container mt-4">
+
+    <h1>Campaign Management</h1>
+        <h2 id="overview">Campaign overview</h2>
+        <table class="table table-bordered bg-white">
+            <tr>
+                <th>Campaign title</th>
+                <td>Coorparoo P&C Biggest Morning Tea</td>
+            </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>A morning tea in the school hall to raise money for Cancer Council Queensland.</td>
+                </tr>
+                <tr>
+                    <th>Event date</th>
+                    <td>Thursday 21 May 2026</td>
+                </tr>
+                <tr>
+                    <th>Charity</th>
+                    <td>Cancer Council Queensland</td>
+                </tr>
+                <tr>
+                    <th>Status</th>
+                    <td><span class="badge bg-success">Active</span> Approved by an administrator on 3 August 2026</td>
+                </tr>
+            </table>
+
+            <div class="row">
+                <div class="col-md-3 col-6">
+                    <div class="stat-box">
+                        <h3>$1,000</h3>
+                        <p>Raised of $8,000</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-box">
+                        <h3>11</h3>
+                        <p>Donations</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-box">
+                        <h3>18</h3>
+                        <p>Participants</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-box">
+                        <h3>6</h3>
+                        <p>Days to go</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="progress mb-4">
+                <div class="progress-bar bg-danger" style="width: 13%">1% of goal</div>
+            </div>
+
+            <h2 id="details">Edit campaign details</h2>
+
+            <div class="card">
+                <div class="card-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="title" class="form-label">Campaign title</label>
+                            <input type="text" class="form-control" id="title"
+                                   value="Coorparoo P&C Biggest Morning Tea">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Description</label>
+                            <textarea class="form-control" id="description" rows="4">Doors open at 9:30am in the school hall. Entry is a gold coin and a slice of cake costs a bit more. There is also a raffle on the day.</textarea>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="goal" class="form-label">Fundraising goal</label>
+                                <input type="text" class="form-control" id="goal" value="$8,000">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="eventDate" class="form-label">Event date</label>
+                                <input type="date" class="form-control" id="eventDate" value="2026-05-21">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="category" class="form-label">Category</label>
+                            <select class="form-select" id="category">
+                                <option selected>Morning tea</option>
+                                <option>Walk or run</option>
+                                <option>Bake sale</option>
+                                <option>Trivia night</option>
+                                <option>School event</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="status" class="form-label">Campaign status</label>
+                            <select class="form-select" id="status">
+                                <option selected>Active - accepting donations</option>
+                                <option>Paused - page visible but donations closed</option>
+                                <option>Draft - not visible to the public</option>
+                                <option>Completed - the event has happened</option>
+                            </select>
+                            <small class="text-muted">Only an administrator can suspend or delete a campaign.</small>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="banner" class="form-label">Banner image</label>
+                            <input type="file" class="form-control" id="banner">
+                        </div>
+
+                        <button type="button" class="btn btn-danger">Save changes</button>
+                        <button type="button" class="btn btn-secondary">Cancel</button>
+                    </form>
+                </div>
+            </div>
+
+            <h2 id="posts" class="mt-4">Create a post or update</h2>
+
+            <div class="card">
+                <div class="card-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="postTitle" class="form-label">Update title</label>
+                            <input type="text" class="form-control" id="postTitle">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="postText" class="form-label">Update text</label>
+                            <textarea class="form-control" id="postText" rows="4"></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="postImage" class="form-label">Upload an image</label>
+                            <input type="file" class="form-control" id="postImage">
+                        </div>
+
+                        <button type="button" class="btn btn-danger">Publish update</button>
+                        <button type="button" class="btn btn-secondary">Save as draft</button>
+                    </form>
+                </div>
+            </div>
+
+            <h3 class="mt-4">Posts already published</h3>
+
+            <table class="table table-bordered bg-white">
+                <thead class="table-light">
+                <tr>
+                    <th>Title</th>
+                    <th>Date posted</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>The urn situation is under control</td>
+                    <td>14 May 2026</td>
+                    <td><span class="badge bg-success">Published</span></td>
+                    <td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+                </tr>
+                <tr>
+                    <td>We passed halfway three weeks early</td>
+                    <td>8 May 2026</td>
+                    <td><span class="badge bg-success">Published</span></td>
+                    <td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+                </tr>
+                <tr>
+                    <td>The date is locked in</td>
+                    <td>1 May 2026</td>
+                    <td><span class="badge bg-success">Published</span></td>
+                    <td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+                </tr>
+                <tr>
+                    <td>Bakers wanted</td>
+                    <td>Not posted yet</td>
+                    <td><span class="badge bg-secondary">Draft</span></td>
+                    <td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+                </tr>
+                </tbody>
+            </table>
+
+            <h2 id="donations" class="mt-4">Donation history</h2>
+
+            <table class="table table-bordered table-striped bg-white">
+                <thead class="table-light">
+                <tr>
+                    <th>Date</th>
+                    <th>Donor name</th>
+                    <th>Email</th>
+                    <th>Amount</th>
+                    <th>Payment method</th>
+                    <th>Message</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>15 May 2026</td>
+                    <td>Marika H.</td>
+                    <td>marika@example.com</td>
+                    <td>$250.00</td>
+                    <td>Credit card</td>
+                    <td>For Mum, who never missed one of these.</td>
+                </tr>
+                <tr>
+                    <td>15 May 2026</td>
+                    <td>Dev P.</td>
+                    <td>dev@example.com</td>
+                    <td>$75.00</td>
+                    <td>Apple Pay</td>
+                    <td>Go the Year 6 bakers!</td>
+                </tr>
+                <tr>
+                    <td>14 May 2026</td>
+                    <td>Anonymous</td>
+                    <td>hidden@example.com</td>
+                    <td>$500.00</td>
+                    <td>Bank transfer</td>
+                    <td>No message</td>
+                </tr>
+                <tr>
+                    <td>13 May 2026</td>
+                    <td>The Lunt family</td>
+                    <td>lunt@example.com</td>
+                    <td>$100.00</td>
+                    <td>PayPal</td>
+                    <td>Three kids through Coorparoo and counting.</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <p>Showing 4 of 11 donations. <a href="#">Next page</a></p>
+
+            <h2 id="statistics" class="mt-4">Campaign statistics</h2>
+                <div class="card p-3 bg-white">
+                    <h3 class="h5">Donations received each day (last 14 days)</h3>
+                    <div class="chart">
+                        <div class="chart-column"><div class="chart-bar" style="height: 40%"></div></div>
+                        <div class="chart-column"><div class="chart-bar" style="height: 26%"></div></div>
+                        <div class="chart-column"><div class="chart-bar" style="height: 22%"></div></div>
+                        <div class="chart-column"><div class="chart-bar" style="height: 30%"></div></div>
+                        <div class="chart-column"><div class="chart-bar" style="height: 44%"></div></div>
+                        <div class="chart-column"><div class="chart-bar" style="height: 78%"></div></div>
+                        <div class="chart-column"><div class="chart-bar" style="height: 52%"></div></div>
+                        <div class="chart-column"><div class="chart-bar" style="height: 60%"></div></div>
+                        <div class="chart-column"><div class="chart-bar" style="height: 55%"></div></div>
+                        <div class="chart-column"><div class="chart-bar" style="height: 72%"></div></div>
+                    </div>
+                    <p class="mt-2"><small class="text-muted">Day 1 on the left to day 14 on the right.</small></p>
+                    <h3 class="h5 mt-4">Where the donations came from</h3>
+                    <p class="mb-1">Shared links - 58%</p>
+                    <div class="progress mb-2">
+                        <div class="progress-bar bg-danger" style="width: 58%"></div>
+                    </div>
+                    <p class="mb-1">Search on the website - 24%</p>
+                    <div class="progress mb-2">
+                        <div class="progress-bar bg-success" style="width: 24%"></div>
+                    </div>
+                    <p class="mb-1">Featured section on the home page - 18%</p>
+                    <div class="progress mb-2">
+                        <div class="progress-bar bg-warning" style="width: 18%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h4>Muster</h4>
+                <p style="font-size: 14px;">An Australian fundraising website for community charity events.</p>
+            </div>
+            <div class="col-md-3">
+                <h4>Fundraise</h4>
+                <a href="campaign.html">Start an event</a>
+                <a href="#">Organiser guide</a>
+                <a href="#">Fees and payouts</a>
+            </div>
+            <div class="col-md-3">
+                <h4>Support</h4>
+                <a href="#">Help centre</a>
+                <a href="#">Contact us</a>
+            </div>
+            <div class="col-md-3">
+                <h4>Legal</h4>
+                <a href="#">Terms of use</a>
+                <a href="#">Privacy policy</a>
+                <a href="admin_dashboard.html">Admin login</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+</body>
+</html>

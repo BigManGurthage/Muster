@@ -1,33 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Muster - Administrator Dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link href="css/styles.css" rel="stylesheet">
-</head>
-<body>
-  
+{% extends "base.html" %}
 
-<nav class="navbar navbar-expand-lg">
-    <div class="container">
-        <a class="navbar-brand" href="index.html">Muster Admin</a>
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="donations.html">Fundraisers</a></li>
-                <li class="nav-item"><a class="nav-link" href="campaign.html">My Campaign</a></li>
-                <li class="nav-item"><a class="nav-link" href="admin_dashboard.html">Admin</a></li>
-            </ul>
+{% block title %}Administrator Dashboard{% endblock %}
 
-            <form class="d-flex">
-                <input class="form-control me-2" type="text" placeholder="Search campaigns or users"
-                   aria-label="Search campaigns or users">
-            <button class="btn btn-warning" type="button">Search</button>
-        </form>
-    </div>
-</nav>
-
+{% block content %}
 <div class="container mt-4">
 
     <h1>Administrator Dashboard</h1>
@@ -149,7 +124,7 @@
                             <option>Completed</option>
                         </select>
                     </td>
-                    <td><a href="donations.html">View</a> | <a href="#">Delete</a></td>
+                    <td><a href="{{ url_for('main.donations', event_id=1) }}">View</a> | <a href="#">Delete</a></td>
                 </tr>
                 <tr>
                     <td>Riverside Twilight Walk</td>
@@ -164,7 +139,7 @@
                             <option>Completed</option>
                         </select>
                     </td>
-                    <td><a href="donations.html">View</a> | <a href="#">Delete</a></td>
+                    <td><a href="{{ url_for('main.donations', event_id=1) }}">View</a> | <a href="#">Delete</a></td>
                 </tr>
                 <tr>
                     <td>Help Our Mate Get Back On Track</td>
@@ -178,7 +153,7 @@
                             <option>Rejected</option>
                         </select>
                     </td>
-                    <td><a href="donations.html">View</a> | <a href="#">Delete</a></td>
+                    <td><a href="{{ url_for('main.donations', event_id=1) }}">View</a> | <a href="#">Delete</a></td>
                 </tr>
                 <tr>
                     <td>Sunset Fun Run Geelong</td>
@@ -192,7 +167,7 @@
                             <option>Paused</option>
                         </select>
                     </td>
-                    <td><a href="donations.html">View</a> | <a href="#">Delete</a></td>
+                    <td><a href="{{ url_for('main.donations', event_id=1) }}">View</a> | <a href="#">Delete</a></td>
                 </tr>
                 </tbody>
             </table>
@@ -340,38 +315,4 @@
             </div>
 
 </div>
-
-<div class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-                <h4>Muster</h4>
-                <p style="font-size: 14px;">An Australian fundraising website for community charity events.</p>
-            </div>
-            <div class="col-md-3">
-                <h4>Fundraise</h4>
-                <a href="campaign.html">Start an event</a>
-                <a href="#">Organiser guide</a>
-                <a href="#">Fees and payouts</a>
-            </div>
-            <div class="col-md-3">
-                <h4>Support</h4>
-                <a href="#">Help centre</a>
-                <a href="#">Contact us</a>
-            </div>
-            <div class="col-md-3">
-                <h4>Legal</h4>
-                <a href="#">Terms of use</a>
-                <a href="#">Privacy policy</a>
-                <a href="admin_dashboard.html">Admin login</a>
-            </div>
-        </div>
-
-    </div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-
-
-</body>
-</html>
+{% endblock %}

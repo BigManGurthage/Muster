@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<div class="container section">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            <h1>Create an account</h1>
+            {# TODO: replace with a WTForms RegisterForm (render_form) #}
+            <p class="text-muted">The registration form is coming soon.</p>
+            <a href="{{ url_for('main.login') }}">Already have an account? Log in</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

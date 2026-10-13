@@ -46,5 +46,13 @@ The first time you push, VS Code will ask you to sign in to GitHub. Click **Allo
 | --- | --- |
 | `git status` | Shows which files you've changed |
 | `git log --oneline` | Shows recent commits |
+
+
+<img width="864" height="1060" alt="image" src="https://github.com/user-attachments/assets/124a472e-8675-4449-96e6-2cc9f8c28d10" />
+
+
+
+
+
 | `git restore filename.html` | Throws away your unsaved changes to that file |
 | `git pull` then `git push` | Fixes "push rejected" — someone pushed before you |

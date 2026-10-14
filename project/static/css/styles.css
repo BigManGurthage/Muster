@@ -27,6 +27,11 @@ a {
     color: orange;
 }
 
+.navbar .navbar-nav .nav-link.active {
+  color: orange;
+  font-weight: bold;
+}
+
 .nav-link {
     color: #ffffff;
 }

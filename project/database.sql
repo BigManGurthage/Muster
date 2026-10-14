@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS donations(
     anonymous BOOLEAN NOT NULL DEFAULT FALSE,
     receipt_number VARCHAR(100) UNIQUE,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    payment_method ENUM('Credit or debit card', 'Paypel', 'Bank transfer', 'Apple Pay','Google Pay') NOT NULL,
+    payment_method ENUM('Credit or debit card', 'Paypal', 'Bank transfer', 'Apple Pay','Google Pay') NOT NULL,
     FOREIGN KEY (campaign_id) REFERENCES campaigns (campaign_id) ON DELETE RESTRICT,
     FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE RESTRICT
 );

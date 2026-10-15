@@ -55,10 +55,10 @@
             <ul class="navbar-nav">
                 {% if current_user.is_authenticated %}
                 <li class="nav-item">
-                    <span class="navbar-text me-lg-2">Hi, {{ current_user.username }}</span>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('main.logout') }}">Logout</a>
+                    <form method="post" action="{{ url_for('main.logout') }}">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        <button type="submit" class="nav-link">Logout</button>
+                    </form>
                 </li>
                 {% else %}
                 <li class="nav-item">

@@ -1,15 +1,9 @@
-"""Database access. All SQL lives in this file and must use parameterised
-queries (never build SQL with f-strings or string concatenation).
-
-Add your functions inside your own marked section to avoid merge conflicts.
-"""
 from flask_login import UserMixin
 
 from . import login_manager, mysql
 
 
-# Database helpers (shared)
-
+# Database helpers
 def fetch_all(sql, params=None):
     """Run a SELECT and return every row as a list of dicts."""
     cur = mysql.connection.cursor()
@@ -39,7 +33,6 @@ def execute(sql, params=None):
 
 
 # Users and authentication
-
 class User(UserMixin):
     """The logged-in user. `role` is 'admin', 'fundraiser' or 'supporter'."""
 
@@ -51,8 +44,25 @@ class User(UserMixin):
 
 @login_manager.user_loader
 def load_user(user_id):
-    # TODO: look the user up in the users table and return a User.
-    return None
+    """Flask-Login calls this on every request with the id kept in the session."""
+    row = fetch_one('SELECT user_id, username, role FROM users '
+                    'WHERE user_id = %s AND is_active = TRUE', (user_id,))
+    if row is None:
+        return None
+    return User(row['user_id'], row['username'], row['role'])
+
+
+def get_user_by_username(username):
+    """Return the user's full row, or None if the username doesn't exist."""
+    return fetch_one('SELECT * FROM users WHERE username = %s', (username,))
+
+
+def create_user(username, email, password_hash, firstname, surname, role):
+    """Insert a new user and return their id. The password must already be hashed."""
+    return execute(
+        'INSERT INTO users (username, email, password_hash, firstname, surname, role) '
+        'VALUES (%s, %s, %s, %s, %s, %s)',
+        (username, email, password_hash, firstname, surname, role))
 
 
 # Home page and search

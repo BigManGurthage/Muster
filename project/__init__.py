@@ -1,6 +1,7 @@
 import os
 
 from flask import Flask, render_template
+from flask_bootstrap import Bootstrap5
 from flask_login import LoginManager
 from flask_mysqldb import MySQL
 from flask_wtf.csrf import CSRFProtect
@@ -9,6 +10,7 @@ from flask_wtf.csrf import CSRFProtect
 mysql = MySQL()
 login_manager = LoginManager()
 csrf = CSRFProtect()
+bootstrap = Bootstrap5()
 
 
 def create_app():
@@ -21,20 +23,20 @@ def create_app():
         MYSQL_USER=os.environ.get('MYSQL_USER', 'root'),
         MYSQL_PASSWORD=os.environ.get('MYSQL_PASSWORD', ''),
         MYSQL_DB=os.environ.get('MYSQL_DB', 'muster'),
-        MYSQL_CURSORCLASS='DictCursor',  # rows come back as dictionaries
+        MYSQL_CURSORCLASS='DictCursor',
     )
 
     mysql.init_app(app)
     csrf.init_app(app)
+    bootstrap.init_app(app)
 
     login_manager.init_app(app)
     login_manager.login_view = 'main.login'
     login_manager.login_message = 'Please log in to access that page.'
     login_manager.login_message_category = 'warning'
 
-    # Imported here (not at the top) because these modules import the
-    # extensions defined above.
-    from . import models  # noqa: F401  (registers the user_loader)
+    # Imported here because these modules import the extensions defined above.
+    from . import models  # noqa: F401
     from .views import bp
     app.register_blueprint(bp)
 

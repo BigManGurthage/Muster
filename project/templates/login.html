@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from 'bootstrap5/form.html' import render_form %}
 
 {% block title %}Login{% endblock %}
 
@@ -8,20 +9,8 @@
         <div class="col-md-6 col-lg-5">
             <h1>Log in</h1>
 
-            {# TODO: replace with a WTForms LoginForm (render_form) #}
-            <form method="post" novalidate>
-                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-                <div class="mb-3">
-                    <label for="username" class="form-label">Username</label>
-                    <input type="text" class="form-control" id="username" name="username">
-                </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" name="password">
-                </div>
-                <button type="submit" class="btn btn-warning">Log in</button>
-                <a href="{{ url_for('main.register') }}" class="ms-2">Create an account</a>
-            </form>
+            {{ render_form(form, novalidate=True, button_style='warning') }}
+            <p class="mt-2"><a href="{{ url_for('main.register') }}">Create an account</a></p>
 
             <div class="card mt-4">
                 <div class="card-body">
@@ -31,9 +20,13 @@
                             <tr><th>Role</th><th>Username</th><th>Password</th></tr>
                         </thead>
                         <tbody>
-                            {# TODO: two accounts per role (Administrator, Fundraiser, Supporter)
-                               matching the users inserted by database.sql #}
-                            <tr><td colspan="3" class="text-muted">To be added with the sample users.</td></tr>
+                            {# Must match the users inserted by database.sql #}
+                            <tr><td>Administrator</td><td>admin1</td><td>Muster123!</td></tr>
+                            <tr><td>Administrator</td><td>admin2</td><td>Muster123!</td></tr>
+                            <tr><td>Fundraiser</td><td>fundraiser1</td><td>Muster123!</td></tr>
+                            <tr><td>Fundraiser</td><td>fundraiser2</td><td>Muster123!</td></tr>
+                            <tr><td>Supporter</td><td>supporter1</td><td>Muster123!</td></tr>
+                            <tr><td>Supporter</td><td>supporter2</td><td>Muster123!</td></tr>
                         </tbody>
                     </table>
                 </div>

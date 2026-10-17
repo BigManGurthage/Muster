@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from 'bootstrap5/form.html' import render_form %}
 
 {% block title %}Register{% endblock %}
 
@@ -7,9 +8,8 @@
     <div class="row justify-content-center">
         <div class="col-md-6 col-lg-5">
             <h1>Create an account</h1>
-            {# TODO: replace with a WTForms RegisterForm (render_form) #}
-            <p class="text-muted">The registration form is coming soon.</p>
-            <a href="{{ url_for('main.login') }}">Already have an account? Log in</a>
+            {{ render_form(form, novalidate=True, button_style='warning') }}
+            <p class="mt-2"><a href="{{ url_for('main.login') }}">Already have an account? Log in</a></p>
         </div>
     </div>
 </div>
